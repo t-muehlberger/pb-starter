@@ -33,3 +33,5 @@ go run github.com/air-verse/air@latest serve --dev
 go get -u ./...
 go mod tidy
 ```
+
+Make sure [`modernc.org/libc`](https://pkg.go.dev/modernc.org/libc) version matches [`modernc.org/sqlite`] if *modernc* Sqlite-Driver is used.
