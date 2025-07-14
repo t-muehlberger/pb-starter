@@ -34,4 +34,4 @@ go get -u ./...
 go mod tidy
 ```
 
-Make sure [`modernc.org/libc`](https://pkg.go.dev/modernc.org/libc) version matches [`modernc.org/sqlite`] if *modernc* Sqlite-Driver is used.
+Make sure [`modernc.org/libc`](https://pkg.go.dev/modernc.org/libc) version matches [`modernc.org/sqlite`](https://pkg.go.dev/modernc.org/sqlite) if *modernc* Sqlite-Driver is used.
