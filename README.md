@@ -15,6 +15,12 @@ My personal [PocketBase](https://pocketbase.io/) starter project
 go run ./cmd/server serve
 ```
 
+Run with live reload
+
+```shell
+go run github.com/air-verse/air@latest serve --dev
+```
+
 ## GitHub Actions
 
 `Settings` => `Actions` => `General` => `Workflow permissions` => Set to `Read and write`
