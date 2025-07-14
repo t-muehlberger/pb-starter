@@ -34,3 +34,5 @@ go.work.sum
 pb_data
 
 .env
+
+tmp
