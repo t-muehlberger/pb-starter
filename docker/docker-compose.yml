@@ -1,0 +1,6 @@
+services:
+  pb:
+    image: "ghcr.io/t-muehlberger/pb-starter:latest"
+    build:
+      context: ".."
+      dockerfile: "./docker/dockerfile"

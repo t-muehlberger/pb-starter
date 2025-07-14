@@ -1,0 +1,8 @@
+services:
+  pb:
+    ports: 
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - "../pb_data:/app/pb_data"
+    env_file: "../.env"
+    user: "${UID}:${GID}"
