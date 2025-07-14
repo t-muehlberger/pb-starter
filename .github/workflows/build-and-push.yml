@@ -1,0 +1,31 @@
+name: Build and Push Images
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    defaults:
+      run:
+        working-directory: './docker'
+    steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@main
+        with:
+          submodules: recursive
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: 'Build and Push Image' 
+        run: |
+          docker compose build
+          docker compose push
