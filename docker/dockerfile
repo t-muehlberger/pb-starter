@@ -23,8 +23,8 @@ COPY . .
 COPY --from=client /client/dist ./pb_public
 
 RUN --mount=type=cache,target=/root/.cache/go-build,id=go-build-${TARGETARCH:-amd64} \
-    --mount=type=cache,target=/go/pkg/mod,id=go-mod-${TARGETARCH:-amd64} \
-    CGO_ENABLED=0 GOOS=linux GOARCH=${TARGETARCH:-amd64} go build -ldflags "-w -s" -a -installsuffix cgo ./cmd/server
+    --mount=type=cache,target=/go/pkg/mod \
+    CGO_ENABLED=0 go build -ldflags "-w -s" -a -installsuffix cgo ./cmd/server
 
 FROM alpine:3 AS run
 
