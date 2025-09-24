@@ -6,6 +6,8 @@ import (
 	"strings"
 
 	"github.com/pocketbase/pocketbase"
+	"github.com/pocketbase/pocketbase/apis"
+	"github.com/pocketbase/pocketbase/core"
 	"github.com/pocketbase/pocketbase/plugins/migratecmd"
 	_ "muehlberger.dev/pb-starter/internal/migrations"
 )
@@ -20,6 +22,11 @@ func main() {
 	migratecmd.MustRegister(app, app.RootCmd, migratecmd.Config{
 		Dir:         "internal/migrations",
 		Automigrate: automigrate,
+	})
+
+	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
+		se.Router.GET("/{path...}", apis.Static(os.DirFS("./pb_public"), true))
+		return se.Next()
 	})
 
 	if err := app.Start(); err != nil {
