@@ -2,8 +2,6 @@ import { defineConfig } from 'vite';
 import path from 'path';
 
 export default defineConfig({
-  root: 'src',
-
   server: {
     port: 5173,
     proxy: {
@@ -22,10 +20,5 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     sourcemap: true,
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'src/index.html')
-      }
-    }
   },
 });
