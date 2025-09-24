@@ -36,3 +36,6 @@ pb_data
 .env
 
 tmp
+
+# Client build output
+client/dist/
